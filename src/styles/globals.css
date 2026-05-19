@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap');
+@import "tailwindcss";
+
+/* Кастомные цвета для Tailwind v4 */
+@theme {
+  --color-dark: #1a1a1a;
+  --color-gold: #ffd700;
+  --color-gold-light: #ffed4a;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-dark);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .section-padding {
+    padding-top: 7.5rem; /* py-30 */
+    padding-bottom: 7.5rem;
+    padding-left: 1.5rem; /* px-6 */
+    padding-right: 1.5rem;
+  }
+  
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-left: 3.75rem; /* lg:px-15 */
+      padding-right: 3.75rem;
+    }
+  }
+  
+  .container-max {
+    max-width: 80rem; /* max-w-7xl */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .gold-gradient {
+    background-image: linear-gradient(to right, var(--color-gold), var(--color-gold-light));
+  }
+  
+  .card-hover {
+    transition: all 0.4s;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-1rem);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 2px rgba(255, 215, 0, 0.1);
+  }
+}
+
+/* Утилита для блокировки скролла */
+body.menu-open {
+  overflow: hidden;
+}
+
