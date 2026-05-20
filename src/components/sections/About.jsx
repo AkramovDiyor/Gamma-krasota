@@ -16,7 +16,7 @@ export const About = () => (
         >
           <div className="relative w-full aspect-4/5 rounded-2xl overflow-hidden border-2 border-gold/20 hover:border-gold/50 transition-colors group">
             <img 
-              src="../src/assets/гаммакросата.webp" 
+              src="/assets/гаммакросата.webp" 
               alt="Салон Гамма Красота"
               className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-103"
             />
