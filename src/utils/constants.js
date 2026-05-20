@@ -131,9 +131,9 @@ export const MASTERS = [
     ],
     // Мини-портфолио мастера (3-6 фото)
     portfolio: [
-      { id: 1, image: '/portfolio/anna-1.jpg', title: 'Балаяж на длинные волосы', category: 'Окрашивание' },
-      { id: 2, image: '/portfolio/anna-2.jpg', title: 'Каскад с чёлкой', category: 'Стрижка' },
-      { id: 3, image: '/portfolio/anna-3.jpg', title: 'Вечерняя укладка', category: 'Укладка' },
+      { id: 1, image: '../src/assets/img/svadba.webp', title: 'Балаяж на длинные волосы', category: 'Окрашивание' },
+      { id: 2, image: '../src/assets/img/svadba.webp', title: 'Каскад с чёлкой', category: 'Стрижка' },
+      { id: 3, image: '../src/assets/img/svadba.webp', title: 'Вечерняя укладка', category: 'Укладка' },
     ],
     schedule: {
       mon: { start: 9, end: 21, available: true },
@@ -163,9 +163,9 @@ export const MASTERS = [
       { id: 'toning', label: 'Тонирование', duration: '1-1.5 часа', price: 'от 1 500 ₽' },
     ],
     portfolio: [
-      { id: 1, image: '/portfolio/elena-1.jpg', title: 'Аиртач блонд', category: 'Окрашивание' },
-      { id: 2, image: '/portfolio/elena-2.jpg', title: 'Шатуш на каштановые', category: 'Окрашивание' },
-      { id: 3, image: '/portfolio/elena-3.jpg', title: 'Тонирование в пепельный', category: 'Окрашивание' },
+      { id: 1, image: '../src/assets/img/svadba.webp', title: 'Аиртач блонд', category: 'Окрашивание' },
+      { id: 2, image: '../src/assets/img/svadba.webp', title: 'Шатуш на каштановые', category: 'Окрашивание' },
+      { id: 3, image: '../src/assets/img/svadba.webp', title: 'Тонирование в пепельный', category: 'Окрашивание' },
     ],
     schedule: {
       mon: { start: 10, end: 20, available: true },
@@ -195,9 +195,9 @@ export const MASTERS = [
       { id: 'nail-design', label: 'Дизайн ногтей', duration: '+30 мин', price: 'от 300 ₽' },
     ],
     portfolio: [
-      { id: 1, image: '/portfolio/maria-1.jpg', title: 'Французский маникюр', category: 'Маникюр' },
-      { id: 2, image: '/portfolio/maria-2.jpg', title: 'Минимализм + стразы', category: 'Дизайн' },
-      { id: 3, image: '/portfolio/maria-3.jpg', title: 'Педикюр с покрытием', category: 'Педикюр' },
+      { id: 1, image: '../src/assets/img/svadba.webp', title: 'Французский маникюр', category: 'Маникюр' },
+      { id: 2, image: '../src/assets/img/svadba.webp', title: 'Минимализм + стразы', category: 'Дизайн' },
+      { id: 3, image: '../src/assets/img/svadba.webp', title: 'Педикюр с покрытием', category: 'Педикюр' },
     ],
     schedule: {
       mon: { start: 9, end: 21, available: true },
@@ -227,9 +227,9 @@ export const MASTERS = [
       { id: 'royal-shave', label: 'Королевское бритьё', duration: '30-45 мин', price: 'от 700 ₽' },
     ],
     portfolio: [
-      { id: 1, image: '/portfolio/dmitry-1.jpg', title: 'Фейд + текстура', category: 'Стрижка' },
-      { id: 2, image: '/portfolio/dmitry-2.jpg', title: 'Оформление бороды', category: 'Барбер' },
-      { id: 3, image: '/portfolio/dmitry-3.jpg', title: 'Классика с пробором', category: 'Стрижка' },
+      { id: 1, image: '../src/assets/img/faed.webp', title: 'Фейд + текстура', category: 'Стрижка' },
+      { id: 2, image: '../src/assets/img/faed.webp', title: 'Оформление бороды', category: 'Барбер' },
+      { id: 3, image: '../src/assets/img/faed.webp', title: 'Классика с пробором', category: 'Стрижка' },
     ],
     schedule: {
       mon: { start: 10, end: 21, available: true },
@@ -259,9 +259,9 @@ export const MASTERS = [
       { id: 'royal-shave', label: 'Королевское бритьё', duration: '30-45 мин', price: 'от 700 ₽' },
     ],
     portfolio: [
-      { id: 1, image: '/portfolio/dmitry-1.jpg', title: 'Фейд + текстура', category: 'Стрижка' },
-      { id: 2, image: '/portfolio/dmitry-2.jpg', title: 'Оформление бороды', category: 'Барбер' },
-      { id: 3, image: '/portfolio/dmitry-3.jpg', title: 'Классика с пробором', category: 'Стрижка' },
+      { id: 1, image: '../src/assets/img/faed.webp', title: 'Фейд + текстура', category: 'Стрижка' },
+      { id: 2, image: '../src/assets/img/faed.webp', title: 'Оформление бороды', category: 'Барбер' },
+      { id: 3, image: '../src/assets/img/faed.webp', title: 'Классика с пробором', category: 'Стрижка' },
     ],
     schedule: {
       mon: { start: 10, end: 21, available: true },
@@ -291,9 +291,9 @@ export const MASTERS = [
       { id: 'royal-shave', label: 'Королевское бритьё', duration: '30-45 мин', price: 'от 700 ₽' },
     ],
     portfolio: [
-      { id: 1, image: '/portfolio/dmitry-1.jpg', title: 'Фейд + текстура', category: 'Стрижка' },
-      { id: 2, image: '/portfolio/dmitry-2.jpg', title: 'Оформление бороды', category: 'Барбер' },
-      { id: 3, image: '/portfolio/dmitry-3.jpg', title: 'Классика с пробором', category: 'Стрижка' },
+      { id: 1, image: '../src/assets/img/faed.webp', title: 'Фейд + текстура', category: 'Стрижка' },
+      { id: 2, image: '../src/assets/img/faed.webp', title: 'Оформление бороды', category: 'Барбер' },
+      { id: 3, image: '../src/assets/img/faed.webp', title: 'Классика с пробором', category: 'Стрижка' },
     ],
     schedule: {
       mon: { start: 10, end: 21, available: true },

@@ -49,23 +49,7 @@ export const Team = () => {
             ))}
           </div>
 
-          {/* 🔷 Призыв к действию */}
-          <motion.div 
-            className="text-center mt-16"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-gray mb-6">
-              Не нашли подходящего мастера? Мы подберём специалиста под вашу задачу.
-            </p>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gold/10 border border-gold/30 text-gold font-bold rounded-xl hover:bg-gold hover:text-black transition-all"
-            >
-              🎯 Получить рекомендацию
-            </a>
-          </motion.div>
+
         </div>
       </section>
 

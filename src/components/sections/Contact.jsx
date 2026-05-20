@@ -13,7 +13,7 @@ export const Contact = () => {
   const [contactData, setContactData] = useState({ name: '', phone: '', comment: '' });
   const [step, setStep] = useState(1);
   const [submitStatus, setSubmitStatus] = useState(null);
-  
+
   const {
     selectedMaster,
     selectedService,
@@ -40,15 +40,15 @@ export const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!isFormValid || !contactData.name || !contactData.phone) {
       alert('Пожалуйста, заполните имя и телефон');
       return;
     }
-    
+
     const result = await submitBooking(contactData);
     setSubmitStatus(result);
-    
+
     if (result.success) {
       setStep(2);
     }
@@ -60,14 +60,14 @@ export const Contact = () => {
       <section id="contact" className="section-padding bg-dark">
         <div className="container-max">
           <SectionHeader label="Онлайн-запись" title="Выберите мастера и время" />
-          
+
           <div className="grid lg:grid-cols-5 gap-8">
-            
+
             {/* 🔷 Левая колонка: Шаги выбора (3/5 колонок на десктопе) */}
             <div className="lg:col-span-3 space-y-6">
-              
+
               {/* 🔹 ШАГ 1: Выбор мастера */}
-              <motion.div 
+              <motion.div
                 className="bg-dark-secondary rounded-2xl p-6 border border-gold/10"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -79,7 +79,7 @@ export const Contact = () => {
                   )}>1</span>
                   <h4 className="font-bold text-lg">Выберите мастера</h4>
                 </div>
-                
+
                 <div className="grid sm:grid-cols-2 gap-3">
                   {masters.map(master => (
                     <MasterCard
@@ -95,7 +95,7 @@ export const Contact = () => {
               {/* 🔹 ШАГ 2: Услуги мастера (появляется после выбора мастера) */}
               <AnimatePresence>
                 {selectedMaster && (
-                  <motion.div 
+                  <motion.div
                     className="bg-dark-secondary rounded-2xl p-6 border border-gold/10"
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
@@ -109,7 +109,7 @@ export const Contact = () => {
                       )}>2</span>
                       <h4 className="font-bold text-lg">Услуги {selectedMaster.name}</h4>
                     </div>
-                    
+
                     <div className="grid sm:grid-cols-2 gap-3">
                       {services.map(service => (
                         <ServiceCardContact
@@ -127,7 +127,7 @@ export const Contact = () => {
               {/* 🔹 ШАГ 3: Выбор даты (появляется после выбора услуги) */}
               <AnimatePresence>
                 {selectedService && (
-                  <motion.div 
+                  <motion.div
                     className="bg-dark-secondary rounded-2xl p-6 border border-gold/10"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -139,9 +139,9 @@ export const Contact = () => {
                       )}>3</span>
                       <h4 className="font-bold text-lg">Выберите дату</h4>
                     </div>
-                    
-                    <DatePicker 
-                      value={selectedDate} 
+
+                    <DatePicker
+                      value={selectedDate}
                       onChange={handleDateChange}
                       master={selectedMaster} // для учёта расписания мастера
                     />
@@ -152,7 +152,7 @@ export const Contact = () => {
               {/* 🔹 ШАГ 4: Выбор времени (появляется после выбора даты) */}
               <AnimatePresence>
                 {selectedDate && selectedMaster && (
-                  <motion.div 
+                  <motion.div
                     className="bg-dark-secondary rounded-2xl p-6 border border-gold/10"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -169,7 +169,7 @@ export const Contact = () => {
                         {selectedDate.toLocaleDateString('ru-RU', { weekday: 'long', day: 'numeric', month: 'short' })}
                       </span>
                     </div>
-                    
+
                     {allSlots.length > 0 ? (
                       <>
                         <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 mb-4">
@@ -193,12 +193,12 @@ export const Contact = () => {
                     ) : (
                       <div className="text-center py-6">
                         <p className="text-gray">
-                          {selectedMaster.schedule[['sun','mon','tue','wed','thu','fri','sat'][selectedDate.getDay()]]?.available 
-                            ? 'На эту дату нет свободных слотов' 
+                          {selectedMaster.schedule[['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'][selectedDate.getDay()]]?.available
+                            ? 'На эту дату нет свободных слотов'
                             : 'Мастер не работает в этот день'}
                         </p>
-                        <Button 
-                          variant="secondary" 
+                        <Button
+                          variant="secondary"
                           className="mt-4"
                           onClick={() => handleDateChange(null)}
                         >
@@ -213,12 +213,13 @@ export const Contact = () => {
 
             {/* 🔷 Правая колонка: Форма контактов (2/5 колонок, стики) */}
             <div className="lg:col-span-2">
-              <form 
+              <form
                 onSubmit={handleSubmit}
                 className="lg:sticky lg:top-24 bg-dark-secondary rounded-2xl p-6 border border-gold/10 space-y-5"
+                noValidate
               >
                 <h3 className="text-xl font-bold uppercase tracking-wide">📝 Ваши данные</h3>
-                
+
                 <div>
                   <label className="block text-xs text-gold uppercase tracking-wider font-semibold mb-2">
                     Имя *
@@ -226,13 +227,19 @@ export const Contact = () => {
                   <input
                     type="text"
                     required
+                    minLength="2"
+                    maxLength="50"
+                    pattern="[A-Za-zА-Яа-яёЁ\s-]+"
+                    title="Только буквы, пробелы и дефисы, от 2 до 50 символов"
                     value={contactData.name}
                     onChange={(e) => handleContactChange('name', e.target.value)}
                     className="w-full px-5 py-4 bg-dark-tertiary border border-gold/15 rounded-xl text-white placeholder-gray focus:outline-none focus:border-gold transition-colors"
                     placeholder="Как к вам обращаться?"
+                    onInvalid={(e) => e.target.setCustomValidity('Пожалуйста, введите корректное имя (от 2 до 50 букв)')}
+                    onInput={(e) => e.target.setCustomValidity('')}
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-xs text-gold uppercase tracking-wider font-semibold mb-2">
                     Телефон *
@@ -240,13 +247,17 @@ export const Contact = () => {
                   <input
                     type="tel"
                     required
+                    pattern="(\+7|8)[\s-]?\(?[0-9]{3}\)?[\s-]?[0-9]{3}[\s-]?[0-9]{2}[\s-]?[0-9]{2}"
+                    title="Форматы: +7 (XXX) XXX-XX-XX или 8XXXXXXXXXX"
                     value={contactData.phone}
                     onChange={(e) => handleContactChange('phone', e.target.value)}
                     className="w-full px-5 py-4 bg-dark-tertiary border border-gold/15 rounded-xl text-white placeholder-gray focus:outline-none focus:border-gold transition-colors"
                     placeholder="+7 (___) ___-__-__"
+                    onInvalid={(e) => e.target.setCustomValidity('Введите корректный номер телефона (10-11 цифр)')}
+                    onInput={(e) => e.target.setCustomValidity('')}
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-xs text-gold uppercase tracking-wider font-semibold mb-2">
                     Комментарий
@@ -255,14 +266,20 @@ export const Contact = () => {
                     value={contactData.comment}
                     onChange={(e) => handleContactChange('comment', e.target.value)}
                     rows={3}
+                    maxLength="500"
                     className="w-full px-5 py-4 bg-dark-tertiary border border-gold/15 rounded-xl text-white placeholder-gray focus:outline-none focus:border-gold transition-colors resize-y"
-                    placeholder="Пожелания, особенности..."
+                    placeholder="Пожелания, особенности... (до 500 символов)"
                   />
+                  {contactData.comment && contactData.comment.length > 450 && (
+                    <p className="text-xs text-orange-400 mt-1">
+                      {contactData.comment.length}/500 символов
+                    </p>
+                  )}
                 </div>
 
                 {/* 📋 Сводка выбора */}
                 {isFormValid && (
-                  <motion.div 
+                  <motion.div
                     className="p-4 bg-gold/10 border border-gold/20 rounded-xl space-y-2"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -278,8 +295,8 @@ export const Contact = () => {
                   </motion.div>
                 )}
 
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   disabled={!isFormValid || isSubmitting || !contactData.name || !contactData.phone}
                   className="w-full mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
@@ -290,7 +307,7 @@ export const Contact = () => {
                     </span>
                   ) : '✅ Подтвердить запись'}
                 </Button>
-                
+
                 <p className="text-xs text-gray/60 text-center leading-relaxed">
                   Нажимая кнопку, вы соглашаетесь с <a href="#" className="text-gold hover:underline">политикой конфиденциальности</a> и обработкой персональных данных
                 </p>
@@ -302,8 +319,8 @@ export const Contact = () => {
     );
   }
 
-// 🎉 ШАГ 2: Успешная запись
-return (
+  // 🎉 ШАГ 2: Успешная запись
+  return (
     <section id="contact" className="section-padding bg-dark min-h-screen flex items-center">
       <div className="container-max max-w-2xl mx-auto text-center px-4">
         <motion.div
@@ -312,17 +329,17 @@ return (
           transition={{ type: 'spring', stiffness: 200 }}
           className="bg-dark-secondary rounded-3xl p-8 lg:p-12 border border-gold/20"
         >
-          
+
           <h2 className="text-3xl lg:text-4xl font-black uppercase mb-4">Вы записаны!</h2>
           <p className="text-gray mb-8 text-lg">
-            Спасибо, <span className="text-white font-semibold">{contactData.name}</span>! 
+            Спасибо, <span className="text-white font-semibold">{contactData.name}</span>!
             Мы подтвердим вашу запись по телефону <span className="text-gold">{contactData.phone}</span> в ближайшее время.
           </p>
-          
+
           {/* 📋 Детали записи */}
           <div className="bg-dark-tertiary rounded-2xl p-6 mb-8 text-left space-y-4">
             <div className="flex items-center gap-4 pb-4 border-b border-gold/10">
-              <img 
+              <img
                 src={selectedMaster?.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(selectedMaster?.name || '')}&background=E6C200&color=0a0a0a`}
                 alt={selectedMaster?.name}
                 className="w-14 h-14 rounded-full object-cover border-2 border-gold/20"
@@ -332,7 +349,7 @@ return (
                 <p className="text-sm text-gold">{selectedMaster?.role}</p>
               </div>
             </div>
-            
+
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div>
                 <span className="text-gray block text-xs uppercase tracking-wider">Услуга</span>
@@ -351,13 +368,13 @@ return (
                 <span className="font-semibold text-gold text-lg">{selectedTime}</span>
               </div>
             </div>
-            
+
             <div className="pt-4 border-t border-gold/10 flex justify-between items-center">
               <span className="text-gray">Стоимость</span>
               <span className="text-2xl font-black text-gold">{selectedService?.price}</span>
             </div>
           </div>
-          
+
           {/* 🔗 Действия */}
           <div className="space-y-4">
             {/* Кнопка "Записать ещё кого-то" */}
@@ -371,7 +388,7 @@ return (
             >
               ✂️ Записать ещё кого-то
             </button>
-            
+
             {/* Ссылка "Изменить запись" */}
             <button
               onClick={() => {
@@ -382,7 +399,7 @@ return (
             >
               Изменить запись
             </button>
-            
+
             {/* Опционально: кнопка "На главную" если нужна */}
             {/* 
             <a href="#home" className="text-sm text-gray hover:text-gold transition-colors block mt-2">
