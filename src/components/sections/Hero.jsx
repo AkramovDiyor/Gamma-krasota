@@ -37,7 +37,7 @@ export const Hero = () => {
         >
           Салон <span className="text-gold">Гамма</span>
           <br />
-          Красота
+          Красоты
         </motion.h1>
 
         <motion.p

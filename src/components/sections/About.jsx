@@ -17,7 +17,7 @@ export const About = () => (
           <div className="relative w-full aspect-4/5 rounded-2xl overflow-hidden border-2 border-gold/20 hover:border-gold/50 transition-colors group">
             <img 
               src="/assets/гаммакросата.webp" 
-              alt="Салон Гамма Красота"
+              alt="Салон Гамма Красоты"
               className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-103"
             />
             {/* Gradient overlay */}
@@ -44,7 +44,7 @@ export const About = () => (
           <SectionHeader label="О нашем салоне" title="Мы создаём красоту и уверенность" center={false} />
           
           <p className="text-gray leading-relaxed">
-            Салон «Гамма Красота» — это место, где каждый клиент получает индивидуальный подход и профессиональный сервис. Наши мастера постоянно совершенствуют свои навыки, следя за последними трендами индустрии.
+            Салон «Гамма Красоты» — это место, где каждый клиент получает индивидуальный подход и профессиональный сервис. Наши мастера постоянно совершенствуют свои навыки, следя за последними трендами индустрии.
           </p>
           <p className="text-gray leading-relaxed">
             Мы используем только профессиональную косметику ведущих мировых брендов, чтобы гарантировать безупречный результат и здоровье ваших волос.

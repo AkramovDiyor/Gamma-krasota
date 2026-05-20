@@ -4,7 +4,7 @@ export const Footer = () => (
         <div className="text-lg font-black tracking-wider uppercase">
           <span className="text-gold">Гамма</span> Красота
         </div>
-        <p className="text-gray text-xs tracking-wide">© 2025 Гамма Красота. Все права защищены.</p>
+        <p className="text-gray text-xs tracking-wide">© 2025 Гамма Красоты. Все права защищены.</p>
         <div className="flex gap-4">
           {['📷', '✈️', '💬'].map((icon, i) => (
             <a 
