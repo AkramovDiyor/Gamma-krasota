@@ -61,16 +61,16 @@ export const Contact = () => {
         <div className="container-max">
           <SectionHeader label="Онлайн-запись" title="Выберите мастера и время" />
 
-          <div className="grid lg:grid-cols-5 gap-8">
+          <div className="flex flex-col lg:flex-row gap-8 w-full">
 
             {/* 🔷 Левая колонка: Шаги выбора (3/5 колонок на десктопе) */}
-            <div className="lg:col-span-3 space-y-6">
+            <div className="w-full lg:w-3/5 space-y-6">
 
               {/* 🔹 ШАГ 1: Выбор мастера */}
               <motion.div
                 className="bg-dark-secondary rounded-2xl p-6 border border-gold/10"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               >
                 <div className="flex items-center gap-3 mb-4">
                   <span className={clsx(
@@ -80,7 +80,7 @@ export const Contact = () => {
                   <h4 className="font-bold text-lg">Выберите мастера</h4>
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {masters.map(master => (
                     <MasterCard
                       key={master.id}

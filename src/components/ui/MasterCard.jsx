@@ -59,11 +59,11 @@ export const MasterCard = ({ master, isSelected, onSelect }) => {
                 {service.label.split(' ')[0]}
               </span>
             ))}
-            {master.services.length > 3 && (
+            {/* {master.services.length > 3 && (
               <span className="text-xs px-2 py-1 text-gold/70">
                 +{master.services.length - 3}
               </span>
-            )}
+            )} */}
           </div>
         </div>
         
